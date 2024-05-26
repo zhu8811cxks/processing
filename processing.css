@@ -1,0 +1,121 @@
+
+a:visited {
+  color: gray;
+}
+.corner-link {
+  text-decoration: none;
+  position: fixed;
+  padding: 20px;
+}
+
+.top-left {
+  top: 25px; /* 调整到边缘的距离，自由选择你认为适合的数值 */
+  left: 100px; /* 调整到边缘的距离，自由选择你认为适合的数值 */
+}
+
+.top-right {
+  top: 25px;
+  right: 100px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("https://cdn.jsdelivr.net/gh/y20522/image-cloud/img/e87b4fc24cfb8028371459e13d12640302da61e814df3b-xQpTjE_fw1200_LE_auto_x2.png"); 
+  background-attachment: fixed; 
+  background-size: cover;
+  height: 100vh; /*改为原先的100vh，确保背景图片覆盖全屏*/
+  width: 100vw; /*添加宽度，确保背景图片覆盖全屏*/
+  display: flex;
+  justify-content: center;
+}
+
+.paper {
+  position: absolute; /*改position为absolute，使元素相对于body定位*/
+  top: 50px; /*这里的50px是纸张与顶部的距离，你可以根据需要自行调整该值*/
+  background-color: white;
+  height: calc(100vh + 50px);  /*改为100vh，使纸张的高度与视口相等，再加上上面预留的距离，实现下段超出视口*/
+  overflow-y: auto; 
+  width: 50%;  
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5); 
+}
+
+.paper::-webkit-scrollbar {
+  width: 10px;  /* 设定滚动条的宽度 */
+}
+
+.paper::-webkit-scrollbar-track {
+  background: #ffffff;  /* 设定滚动条轨道的背景色 */
+}
+
+.paper::-webkit-scrollbar-thumb {
+  background: #ffffff;  /* 设定滚动条滑块的背景色 */
+}
+
+.paper::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;  /* 设定滚动条滑块鼠标悬停时的颜色 */
+}
+
+.myImage {
+  position: fixed;  
+  bottom: 1px;  
+  right: 1220px;  
+  transform: scale(0.3); 
+}
+
+
+/* 未被访问的链接 */
+a:link {
+  color: rgb(100, 100, 100);
+}
+
+/* 用户鼠标悬停 */
+a:hover {
+  color: rgb(124, 124, 124);
+}
+
+/* 被访问的链接 */
+a:visited {
+  color: rgb(148, 148, 148);
+}
+
+/* 鼠标点击链接 */
+a:active {
+  color: black;
+}
+body {
+  cursor: none;
+}
+
+.mouse-pointer{
+  pointer-events: none;
+  position: absolute;
+  user-select: none;
+  z-index: 9999;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: rgba(101, 163, 129, 0.726);
+  transition: width 0.3s, height 0.3s;
+}
+
+a:hover .mouse-pointer{
+  width: 30px;
+  height: 30px;
+}
+.mouse-pointer-large {
+  width: 50px; /* 加大尺寸 */
+  height: 50px;
+  background-color: rgba(31, 165, 125, 0.733); /* 修改颜色为全黑 */
+}
+a {
+  cursor: none !important;
+}
+.paper-image {
+  width: 100%;  /* 图片宽度为容器宽度 */
+  height: auto; /* 高度自适应 */
+}
+html{
+  overflow: hidden;  
+}

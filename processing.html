@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="processing.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+
+</head>
+<body>
+    <a href="index.html" class="corner-link top-left">Menu</a>
+    <a href="all p.html" class="corner-link top-right">Back</a>
+    <div class="paper">
+        <div class="text">
+
+       
+
+
+          <h4>Do one demo in processing which can use mouse or keyboard to interactive;</h4>
+    
+<h5>Moving the mouse changes the position and size of each box.Use the mouse to interact, below is the code and comments, and there are video effects.</h5>
+  <pre><code class="cpp">
+    //Moving the mouse changes the position and size of each box. 
+
+    void setup() {
+      size(640, 360); 
+      noStroke();
+      rectMode(CENTER);//背景矩形在中间
+    }
+    
+    void draw() {
+      background(51); 
+      fill(255, 204);//设置了透明度，可以看到重叠的时候
+      rect(mouseX, height/2, mouseY/2+10, mouseY/2+10);//第一个矩形，跟着鼠一起标动
+      fill(255, 204);//设置了透明度，可以看到重叠的时候
+      int inverseX = width-mouseX;//定义第二个矩形的横坐标数据，同时也用在变换大小上
+      int inverseY = height-mouseY;//定义第二个矩形的变换大小上关系元素
+      rect(inverseX, height/2, (inverseY/2)+10, (inverseY/2)+10);//第二个矩形，不跟鼠标在一起的，反方向动
+    }
+      </code></pre>
+      <img src="example.gif" class="paper-image" alt="pic">
+      
+        </div>
+      </div>
+      <img class="myImage" src="https://cdn.jsdelivr.net/gh/y20522/image-cloud/img/e87b4fc24cfb8028371459e13d12640302da61e814df3b-xQpTjE_fw1200_LE_auto_x2_LE_auto_x2.png"/>
+
+      <div id="particles-js"></div>
+
+<!-- 加载粒子库 -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<!-- 配置和运行粒子效果 -->
+<script>  
+    particlesJS('particles-js', {
+        particles: {
+            number: { value: 30, density: { enable: true, value_area: 800 } }, //将粒子数量更改为100
+            color: { value: '#ffaa00' },
+            shape: { type: 'circle' },
+            opacity: { 
+                value: 0.5, 
+                random: true, 
+                anim: { 
+                    enable: true, // 开启动态改变透明度
+                    speed: 1, // 闪烁速度，数值越高，闪烁频率越高
+                    opacity_min: 0.1, 
+                    sync: false 
+                } 
+            },
+            size: { 
+                value: 6, // 改变粒子最大尺寸
+                random: true, // 尺寸随机
+                anim: { enable: true, speed: 3, size_min: 2} // 开启动态改变尺寸
+            },
+            line_linked: { enable: false },
+            move: { enable: true, speed: 1, direction: 'none', random: true, straight: false, out_mode: 'out', bounce: false, attract: { enable: false, rotateX: 600, rotateY: 600 } }
+        },
+        retina_detect: true
+    });
+    const mousePointer = document.createElement('div');
+    mousePointer.className = 'mouse-pointer';
+    document.body.appendChild(mousePointer);
+  
+    window.addEventListener('mousemove', function (e) {
+      mousePointer.style.left = `${e.pageX}px`;
+      mousePointer.style.top = `${e.pageY}px`;
+    });
+    
+    const links = document.querySelectorAll('a');  /* 选择所有超链接 */
+    
+    links.forEach(link => { /* 对每个链接添加鼠标移入和移出事件 */
+      link.addEventListener('mouseenter', () => {
+        mousePointer.classList.add('large');
+      });
+      link.addEventListener('mouseleave', () => {
+        mousePointer.classList.remove('large');
+      });
+    });
+    
+    links.forEach(link => { 
+    link.addEventListener('mouseenter', () => {
+      mousePointer.classList.add('mouse-pointer-large');
+    });
+    link.addEventListener('mouseleave', () => {
+      mousePointer.classList.remove('mouse-pointer-large');
+    });
+  });
+  
+
+
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script> <!-- 调用highlight.js来应用高亮效果 -->
+
+
+</body>
+</html>
+
